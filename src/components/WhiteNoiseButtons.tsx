@@ -47,7 +47,7 @@ const WhiteNoiseButtons: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <p className="text-xl font-semibold text-gray-800">White Noise</p>
+      <p className="text-xl font-semibold text-gray-800 dark:text-white">White Noise</p>
       <div className="flex flex-row gap-2">
         {Object.keys(sounds).map((key) => {
           const isActive = activeSounds[key];
@@ -61,7 +61,7 @@ const WhiteNoiseButtons: React.FC = () => {
                 }`}
                 onClick={() => toggleSound(key as keyof typeof sounds)}
               >
-                <Icon className={`w-10 h-10 ${isActive ? 'text-gray-950' : 'text-gray-800'}`} />
+                <Icon className={`w-10 h-10 ${isActive ? 'text-white' : 'text-gray-800'}`} />
               </button>
               <audio
                 ref={sounds[key as keyof typeof sounds]}
