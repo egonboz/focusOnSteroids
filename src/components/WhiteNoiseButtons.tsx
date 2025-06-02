@@ -86,12 +86,12 @@ const WhiteNoiseButtons: React.FC = () => {
             <div key={key} className="flex flex-col items-center">
               <button
                 className={`rounded-2xl text-xl px-6 py-3 transition ease-in duration-200 ${
-                  isActive ? "bg-gray-300" : "bg-gray-100"
+                  isActive ? "bg-gray-300 border border-gray-800 dark:border-white" : "bg-gray-100"
                 }`}
                 onClick={() => toggleSound(key as keyof typeof sounds)}
                 onContextMenu={(e) => handleRightClick(e, key as keyof typeof sounds)}
               >
-                <Icon className={`w-10 h-10 ${isActive ? 'text-white' : 'text-gray-800'}`} />
+                <Icon className={`w-10 h-10 ${isActive ? 'text-gray-800 dark:text-black' : 'text-gray-800 dark:text-black'}`} />
               </button>
               {showSlider && (
                 <input
