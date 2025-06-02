@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Timer: React.FC = () => {
     const cycle: [number, number, number, number] = [25, 5, 15, 5];
     const [phaseIndex, setPhaseIndex] = useState<number>(0);
     const [secondsLeft, setSecondsLeft] = useState<number>(cycle[0] * 60);
     const [isRunning, setIsRunning] = useState<boolean>(false);
+
+    const switchButtonRef = useRef<HTMLAudioElement>(null);
+
 
     useEffect (() => {
         let interval: NodeJS.Timeout;
@@ -30,8 +33,14 @@ const Timer: React.FC = () => {
     const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
     const seconds = String(secondsLeft % 60).padStart(2, '0');
 
-    const handleStart = () => setIsRunning(true);
-    const handleStop = () => setIsRunning(false);
+    const handleStart = () => {
+        setIsRunning(true);
+        switchButtonRef.current?.play();
+    };
+    const handleStop = () => {
+        setIsRunning(false);
+        switchButtonRef.current?.play();
+    };
 
     const handleSetTime = (minutes: number) => {
         setIsRunning(false);
@@ -40,6 +49,7 @@ const Timer: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center gap-6">
+            <audio ref={switchButtonRef} src="/sounds/switch.wav" />
             <div className="flex flex-row gap-2">
                 <div className="flex flex-col items-center gap-4">
                     <div className="bg-gray-100 rounded-lg px-32 py-3 text-xl font-semibold text-gray-800">
