@@ -103,7 +103,7 @@ const WhiteNoiseButtons: React.FC = () => {
                   onChange={(e) =>
                     handleVolumeChange(key as keyof typeof sounds, parseFloat(e.target.value))
                   }
-                  className="mt-2 w-20 accent-gray-800 transition ease-in duration-200"
+                  className="mt-2 w-20 accent-gray-800 dark:accent-white transition ease-in duration-200"
                 />
               )}
               <audio
