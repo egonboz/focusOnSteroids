@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+
 
 const Timer: React.FC = () => {
-    const cycle: [number, number, number, number] = [25, 5, 15, 5];
+    const cycle: [number, number, number, number] = [1, 5, 1, 5];
     const [phaseIndex, setPhaseIndex] = useState<number>(0);
     const [secondsLeft, setSecondsLeft] = useState<number>(cycle[0] * 60);
     const [isRunning, setIsRunning] = useState<boolean>(false);
 
     const switchButtonRef = useRef<HTMLAudioElement>(null);
+
+    const rest5= () => toast('Time to rest 5 minutes!');
+    const rest15= () => toast('Time to rest 15 minutes!');
+    const focus = () => toast('Time to focus 25 minutes!');
+
 
 
     useEffect (() => {
@@ -21,6 +28,13 @@ const Timer: React.FC = () => {
         if ( isRunning && secondsLeft === 0 ) {
                 setTimeout(() => {
                     const nextPhase = (phaseIndex + 1) % cycle.length;
+                    if (cycle[nextPhase] === 5) {
+                        rest5();
+                    } else if(cycle[nextPhase] === 1) {
+                        rest15();
+                    } else {
+                        focus();
+                    }
                     setPhaseIndex(nextPhase);
                     setSecondsLeft(cycle[nextPhase] * 60);
                 }, 1000);        
@@ -39,7 +53,7 @@ const Timer: React.FC = () => {
     };
     const handleStop = () => {
         setIsRunning(false);
-        switchButtonRef.current?.play();
+         switchButtonRef.current?.play();
     };
 
     const handleSetTime = (minutes: number) => {
@@ -49,7 +63,20 @@ const Timer: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center gap-6">
-            <audio ref={switchButtonRef} src="/sounds/switch.wav" />
+            <ToastContainer
+            position="top-center"
+            autoClose={10000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+            />            
+            <audio ref={switchButtonRef} src="/sounds/switch.mp3" />
             <div className="flex flex-row gap-2">
                 <div className="flex flex-col items-center gap-4">
                     <div className="bg-gray-100 rounded-lg px-32 py-3 text-xl font-semibold text-gray-800">
