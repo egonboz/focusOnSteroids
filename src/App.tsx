@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-white dark:bg-neutral-900 text-gray-800 dark:text-white flex flex-col items-center mt-14 gap-6 transition-colors duration-300">
       <NavBar />
-      <h1 className="text-2xl font-bold mt-8">Focus Session</h1>
       <Timer />
       <YoutubePlayer />
       <WhiteNoiseButtons />
