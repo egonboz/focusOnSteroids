@@ -15,8 +15,9 @@ const NavBar: React.FC = () => {
   }, [darkMode]);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-2 bg-white dark:bg-gray-900 shadow-md transition-all">
+    <div className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-2 bg-white dark:bg-neutral-800 shadow-md transition-all">
       <p className="text-lg font-bold text-gray-800 dark:text-white">FocusOnSteroids</p>
+      <p className="text-3xl font-bold mr-22 text-gray-800 dark:text-white">Focus Sesion</p>
       <button
         onClick={() => setDarkMode(!darkMode)}
         className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-full transition-all hover:scale-105"
