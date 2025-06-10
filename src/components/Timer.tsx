@@ -3,18 +3,18 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 
 const Timer: React.FC = () => {
-    const cycle: [number, number, number, number] = [1, 5, 1, 5];
+    const cycle: number[] = [25, 5, 25, 5, 25, 15, 25, 5, 25, 5, 25, 15];
     const [phaseIndex, setPhaseIndex] = useState<number>(0);
     const [secondsLeft, setSecondsLeft] = useState<number>(cycle[0] * 60);
     const [isRunning, setIsRunning] = useState<boolean>(false);
 
     const switchButtonRef = useRef<HTMLAudioElement>(null);
+    const finishTimeRef = useRef<HTMLAudioElement>(null);
+
 
     const rest5= () => toast('Time to rest 5 minutes!');
     const rest15= () => toast('Time to rest 15 minutes!');
     const focus = () => toast('Time to focus 25 minutes!');
-
-
 
     useEffect (() => {
         let interval: NodeJS.Timeout;
@@ -36,6 +36,8 @@ const Timer: React.FC = () => {
                         focus();
                     }
                     setPhaseIndex(nextPhase);
+                    setIsRunning(false);
+                    finishTimeRef.current?.play();
                     setSecondsLeft(cycle[nextPhase] * 60);
                 }, 1000);        
             }
@@ -77,6 +79,7 @@ const Timer: React.FC = () => {
             transition={Bounce}
             />            
             <audio ref={switchButtonRef} src="/sounds/switch.mp3" />
+            <audio ref={finishTimeRef} src="/sounds/alarm.mp3" />
             <div className="flex flex-row gap-2">
                 <div className="flex flex-col items-center gap-4">
                     <div className="bg-gray-100 rounded-lg px-32 py-3 text-xl font-semibold text-gray-800">
