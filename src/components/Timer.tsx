@@ -30,7 +30,7 @@ const Timer: React.FC = () => {
                     const nextPhase = (phaseIndex + 1) % cycle.length;
                     if (cycle[nextPhase] === 5) {
                         rest5();
-                    } else if(cycle[nextPhase] === 1) {
+                    } else if(cycle[nextPhase] === 15) {
                         rest15();
                     } else {
                         focus();
