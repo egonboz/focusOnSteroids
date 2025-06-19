@@ -64,7 +64,7 @@ const Timer: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-6 mt-14 sm:mt-20 px-4 w-full">
             <ToastContainer
             position="top-center"
             autoClose={10000}
@@ -80,25 +80,35 @@ const Timer: React.FC = () => {
             />            
             <audio ref={switchButtonRef} src="/sounds/switch.mp3" />
             <audio ref={finishTimeRef} src="/sounds/alarm.mp3" />
-            <div className="flex flex-row gap-2">
-                <div className="flex flex-col items-center gap-4">
-                    <div className="bg-gray-100 rounded-lg px-32 py-3 text-xl font-semibold text-gray-800">
+            <div className="flex flex-row gap-3 justify-center w-1/4 text-xs">
+                <div className="flex flex-col items-center gap-2 w-full">
+                    <div className="bg-gray-100 rounded-3xl px-6 py-3 sm:text-xl font-semibold text-gray-800 tabular-nums text-center w-full">
                         {minutes}
                     </div>
                     <p>Minutes</p>
                 </div>
-                <div className="flex flex-col items-center gap-4">
-                    <div className="bg-gray-100 rounded-lg px-32 py-3 text-xl font-semibold text-gray-800">
+                <div className="flex flex-col items-center gap-2 w-full">
+                    <div className="bg-gray-100 rounded-3xl px-6 py-3 sm:text-xl font-semibold text-gray-800 tabular-nums text-center w-full">
                         {seconds}
                     </div>
                     <p>Seconds</p>
                 </div>
             </div>
-            <div className="flex flex-row gap-4">
-                <button className="bg-gray-100 rounded-full px-24 py-2.5 text-l font-semibold text-gray-800" onClick={() => handleSetTime(25)}>25'</button>
-                <button className={`${isRunning ? "bg-gray-300" : "bg-gray-100"} rounded-3xl px-24 py-2.5 text-l font-semibold text-gray-800 transition`} onClick={handleStart}>Start</button>
-                <button className={`${!isRunning ? "bg-gray-300" : "bg-gray-100"} rounded-3xl px-24 py-2.5 text-l font-semibold text-gray-800 transition`} onClick={handleStop}>Stop</button>
-                <button className="bg-gray-100 rounded-full px-24 py-2.5 text-l font-semibold text-gray-800" onClick={() => handleSetTime(5)}>5'</button>
+            <div className="flex flex-row gap-3 justify-center w-1/2 text-xs">
+                <button className="bg-gray-100 rounded-3xl px-6 py-2.5 sm:text-base font-semibold text-gray-800 w-full" onClick={() => handleSetTime(25)}>25'</button>
+                <button
+                    className={`${isRunning ? "bg-gray-300" : "bg-gray-100"} rounded-3xl px-6 py-2.5 sm:text-base font-semibold text-gray-800 transition w-full`}
+                    onClick={handleStart}
+                >
+                    Start
+                </button>
+                <button
+                    className={`${!isRunning ? "bg-gray-300" : "bg-gray-100"} rounded-3xl px-6 py-2.5 sm:text-base font-semibold text-gray-800 transition w-full`}
+                    onClick={handleStop}
+                >
+                    Stop
+                </button>
+                <button className="bg-gray-100 rounded-3xl px-6 py-2.5 sm:text-base font-semibold text-gray-800 w-full" onClick={() => handleSetTime(5)}>5'</button>
 
             </div>
         </div>
