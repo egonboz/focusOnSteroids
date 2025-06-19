@@ -6,9 +6,9 @@ import YoutubePlayer from './components/YoutubePlayer';
 
 function App() {
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-neutral-900 text-gray-800 dark:text-white flex flex-col items-center mt-14 gap-6 transition-colors duration-300">
+    <div className="flex flex-col items-center gap-3 bg-white dark:bg-neutral-900 text-gray-800 dark:text-white transition-colors duration-300">
       <NavBar />
-      <Timer />
+      <Timer/>
       <YoutubePlayer />
       <WhiteNoiseButtons />
     </div>

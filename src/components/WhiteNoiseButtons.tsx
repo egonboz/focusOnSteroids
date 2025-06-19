@@ -74,8 +74,8 @@ const WhiteNoiseButtons: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col gap-6">
-      <p className="text-xl font-semibold text-gray-800 dark:text-white text-center">White Noise</p>
+    <div className="flex flex-col gap-6 mb-50">
+      <p className="text-base sm:text-xl font-semibold text-gray-800 dark:text-white text-center">White Noise</p>
       <div className="flex flex-row gap-2">
         {Object.keys(sounds).map((key) => {
           const isActive = activeSounds[key];
@@ -85,14 +85,18 @@ const WhiteNoiseButtons: React.FC = () => {
           return (
             <div key={key} className="flex flex-col items-center">
               <button
-                className={`rounded-2xl text-xl px-6 py-3 transition ease-in duration-200 ${
-                  isActive ? "bg-gray-300 border border-gray-800 dark:border-white dark:border-4" : "bg-gray-100"
-                }`}
-                onClick={() => toggleSound(key as keyof typeof sounds)}
-                onContextMenu={(e) => handleRightClick(e, key as keyof typeof sounds)}
-              >
-                <Icon className={`w-10 h-10 ${isActive ? 'text-gray-800 dark:text-black' : 'text-gray-800 dark:text-black'}`} />
-              </button>
+              className={`rounded-2xl text-xl px-6 py-3 transition ease-in duration-200 bg-gray-100
+                ${isActive
+                  ? `shadow-[inset_0_0_0_2px_rgba(0,0,0,0.8)] dark:shadow-[inset_0_0_0_4px_rgba(255,255,255,1)]`
+                  : ``}`}
+              onClick={() => toggleSound(key as keyof typeof sounds)}
+              onContextMenu={(e) => handleRightClick(e, key as keyof typeof sounds)}
+            >
+              <Icon
+                className={`w-6 h-6 sm:w-10 sm:h-10 text-gray-800`}
+              />
+            </button>
+
               {showSlider && (
                 <input
                   type="range"
@@ -103,7 +107,7 @@ const WhiteNoiseButtons: React.FC = () => {
                   onChange={(e) =>
                     handleVolumeChange(key as keyof typeof sounds, parseFloat(e.target.value))
                   }
-                  className="mt-2 w-20 accent-gray-800 dark:accent-white transition ease-in duration-200"
+                  className="w-10 mt-2 sm:w-20 accent-gray-800 dark:accent-white transition ease-in duration-200"
                 />
               )}
               <audio
