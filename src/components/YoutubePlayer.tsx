@@ -13,7 +13,7 @@ interface youtubeSearchResult {
 const YoutubePlayer: React.FC = () => {
   const [searchParams, setSearchParams] = useState("");
 
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${import.meta.env.VITE_YOUTUBE_API_KEY}&type=video&q=${searchParams}`
+  const url = `/api/youtube?query=${searchParams}`;
 
   const {data, isLoading, hasError} = useFetch(url);
 
