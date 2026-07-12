@@ -46,7 +46,7 @@ const YoutubePlayer: React.FC = () => {
           )}
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/jfKfPfyJRdk?si=DFyWVkUlcOUE4YHx&amp;controls=0"
+            src="https://www.youtube.com/embed/X4VbdwhkE10?si=2csrQ8sJkOY-WwZs&amp;controls=0"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
