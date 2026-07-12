@@ -74,7 +74,7 @@ const WhiteNoiseButtons: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col gap-6 mb-50">
+    <div className="flex flex-col gap-6 mb-6">
       <p className="text-base sm:text-xl font-semibold text-gray-800 dark:text-white text-center">White Noise</p>
       <div className="flex flex-row gap-2">
         {Object.keys(sounds).map((key) => {
