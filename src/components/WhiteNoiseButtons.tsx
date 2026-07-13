@@ -74,7 +74,7 @@ const WhiteNoiseButtons: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col gap-6 mb-6">
+    <div className="flex flex-col gap-4 mb-4 overflow-visible">
       <p className="text-base sm:text-xl font-semibold text-gray-800 dark:text-white text-center">White Noise</p>
       <div className="flex flex-row gap-2">
         {Object.keys(sounds).map((key) => {
@@ -83,9 +83,9 @@ const WhiteNoiseButtons: React.FC = () => {
           const showSlider = showVolumeSlider[key];
 
           return (
-            <div key={key} className="flex flex-col items-center">
+            <div key={key} className="flex flex-col items-center relative">
               <button
-              className={`rounded-2xl text-xl px-6 py-3 transition ease-in duration-200 bg-gray-100
+              className={`rounded-2xl text-xl px-4 py-2 sm:px-6 sm:py-3 transition ease-in duration-200 bg-gray-100
                 ${isActive
                   ? `shadow-[inset_0_0_0_2px_rgba(0,0,0,0.8)] dark:shadow-[inset_0_0_0_4px_rgba(255,255,255,1)]`
                   : ``}`}
@@ -107,7 +107,7 @@ const WhiteNoiseButtons: React.FC = () => {
                   onChange={(e) =>
                     handleVolumeChange(key as keyof typeof sounds, parseFloat(e.target.value))
                   }
-                  className="w-10 mt-2 sm:w-20 accent-gray-800 dark:accent-white transition ease-in duration-200"
+                  className="absolute top-full mt-1 w-10 sm:w-20 accent-gray-800 dark:accent-white transition ease-in duration-200 z-10"
                 />
               )}
               <audio
