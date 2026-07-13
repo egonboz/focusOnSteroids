@@ -18,17 +18,17 @@ const YoutubePlayer: React.FC = () => {
   const {data, isLoading, hasError} = useFetch(url);
 
   return (
-    <div className="flex flex-col gap-6 w-auto p-2 sm:w-1/2">
+    <div className="flex flex-col gap-4 w-auto p-2 sm:w-1/2 max-w-xl">
       <p className="text-base sm:text-xl font-semibold text-gray-800 dark:text-white text-center">
         Youtube Player
       </p>
-      <input 
+      {/* <input 
         type="text"
         value={searchParams}
         onChange={(e) => setSearchParams(e.target.value)}
         placeholder="Search for a video"
-        className="bg-gray-100 rounded-xl p-4 dark:text-black"
-      />
+        className="bg-gray-100 rounded-xl p-2 sm:p-4 dark:text-black"
+      /> */}
       <div className="bg-gray-100 rounded-xl p-4">
         <div className="aspect-video w-full rounded-md shadow-md overflow-hidden">
           {!isLoading && !hasError && (data as { items: youtubeSearchResult[] }).items.map(e => {

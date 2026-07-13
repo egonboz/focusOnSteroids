@@ -64,7 +64,7 @@ const Timer: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center gap-6 mt-14 sm:mt-20 px-4 w-full">
+        <div className="flex flex-col items-center gap-4 mt-8 sm:mt-20 px-4 w-full">
             <ToastContainer
             position="top-center"
             autoClose={10000}
