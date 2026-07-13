@@ -87,7 +87,7 @@ const WhiteNoiseButtons: React.FC = () => {
               <button
               className={`rounded-2xl text-xl px-4 py-2 sm:px-6 sm:py-3 transition ease-in duration-200 bg-gray-100
                 ${isActive
-                  ? `shadow-[inset_0_0_0_2px_rgba(0,0,0,0.8)] dark:shadow-[inset_0_0_0_4px_rgba(255,255,255,1)]`
+                  ? `shadow-[inset_0_0_0_2px_rgba(0,0,0,0.8)] dark:shadow-[inset_0_0_0_4px_#B7B7B7]`
                   : ``}`}
               onClick={() => toggleSound(key as keyof typeof sounds)}
               onContextMenu={(e) => handleRightClick(e, key as keyof typeof sounds)}
