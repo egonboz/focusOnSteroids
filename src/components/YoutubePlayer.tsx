@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useFetch } from  "../hooks/useFetch";
 interface youtubeSearchResult {
   etag: string;
@@ -11,9 +10,9 @@ interface youtubeSearchResult {
 
 
 const YoutubePlayer: React.FC = () => {
-  const [searchParams, setSearchParams] = useState("");
+  // const [searchParams, setSearchParams] = useState("");
 
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${import.meta.env.VITE_YOUTUBE_API_KEY}&type=video&q=${searchParams}`
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${import.meta.env.VITE_YOUTUBE_API_KEY}&type=video&q=${"Lofi Hip Hop Radio"}`
 
   const {data, isLoading, hasError} = useFetch(url);
 
